@@ -1,6 +1,6 @@
 import React, {
   useReducer,
-  createContet,
+  //   createContext,
   useEffect,
   createContext,
 } from "react";

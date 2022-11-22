@@ -39,7 +39,7 @@ export const Navbar = () => {
             window.scroll(0, 0);
           }}
         >
-          <img src={logo} alt="Logo" />
+          <img className="logo" src={logo} alt="Logo" />
         </Link>
         {/* onClick={() => !isVisible && setIsVisible(true)} */}
         <button
@@ -69,8 +69,8 @@ export const Navbar = () => {
             <Link className="nav-item nav-link" to="/my-favourites">
               MY FAVOURITES <span className="sr-only">(current)</span>
             </Link>
-            <Link className="nav-item nav-link" to="/top-20-series">
-              TOP 20 SERIES
+            <Link className="nav-item nav-link" to="/top-50-series">
+              TOP 50 SERIES
             </Link>
             <Link className="nav-item nav-link" to="/about">
               ABOUT

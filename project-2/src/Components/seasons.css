@@ -1,0 +1,66 @@
+/* .h {
+    display: flex;
+}; */
+.episode-row {
+    display: flex;
+    background-color: #CCCC;
+    /* margin-top: 0.5rem; */
+    /* border-radius: 10px; */
+    color:  #2c2b3c;
+    /* min-height: max-content; */
+    padding: 5px;
+    object-position: center;
+    /* box-shadow: 5px 5px 15px 5px #1d1818; */
+}
+/* .episode-image{
+    display: inherit
+} */
+.episode-img {
+    width: 150px;
+    padding: 10px;
+}
+
+.x {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 0.1fr;
+    
+    padding-top: 5px;
+
+}
+
+
+.seasons-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+    align-items: start;
+    margin: 2% 7% 7% 7%;
+    gap:0.5rem;
+}
+
+.read-or-hide {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 4% 0 0 7%;
+    color: white;
+}
+
+select {
+    margin: 0 0 1% 7%;
+    padding: 0.3em 5em 0.3em 0.8em;
+}
+
+.episodes-container {
+    background-color: #2c2b3c;
+    border-radius: 10px;
+    margin:5% 8%;
+    box-shadow: 5px 5px 15px 5px #1d1818;
+    padding: 10px 0 10px 0;
+}
+
+#h2 {
+    margin: 0 0 1% 7%;
+}

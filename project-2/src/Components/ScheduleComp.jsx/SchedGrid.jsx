@@ -3,15 +3,15 @@ import SchedCard from "./SchedCard";
 import "./schedCard.css";
 
 const today = new Date();
-console.log(today);
+// console.log(today);
 let day = `${today.getDate() < 10 ? "0" : ""}${today.getDate()}`;
-console.log(day);
+// console.log(day);
 let month = `${today.getMonth() + 1 < 10 ? "0" : ""}${today.getMonth()}`;
-console.log(month);
+// console.log(month);
 let year = today.getFullYear();
-console.log(year);
+// console.log(year);
 let currentDate = `${year}-${month}-${day}`;
-console.log(currentDate);
+// console.log(currentDate);
 
 const SchedGrid = () => {
   const [schedule, setSchedule] = useState([]);
@@ -30,7 +30,7 @@ const SchedGrid = () => {
   useEffect(() => {
     getSchedule(URL, setSchedule);
   }, []);
-  console.log(schedule, "today");
+  // console.log(schedule, "today");
 
   return (
     <section>
