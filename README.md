@@ -26,6 +26,23 @@ cd ../project-2-NEMURA
 npm install
 npm start
 ```
+*Dependencies*
+   "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.1.3",
+    "flowtype": "^2.0.0",
+    "react": "^18.2.0",
+    "react-alice-carousel": "^2.6.4",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.8",
+    "sass": "^1.56.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
 
 ## Contributing
 
