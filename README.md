@@ -39,6 +39,7 @@ npm start
   * "react-scripts": "5.0.1",
   * "react-scroll": "^1.8.8",
   * "styled-components": "^5.3.6",
+  * "web-vitals": "^2.1.4"
   
 ## Contributing
 
