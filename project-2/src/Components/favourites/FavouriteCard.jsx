@@ -2,10 +2,10 @@ import React, { useState } from "react";
 // import Modal from "./Modal";
 // import "../Components/cards/cards.css";
 import image from "../../assets/Image_not_available.png";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-import MyFavourites from "../../pages/MyFavourites";
-import AddToFavourite from "../favourites/AddToFavourite";
+// import MyFavourites from "../../pages/MyFavourites";
+// import AddToFavourite from "../favourites/AddToFavourite";
 import AddOrRemove from "../favourites/AddOrRemove";
 
 // import CurrentPage from "../../pages/CurrentPage";

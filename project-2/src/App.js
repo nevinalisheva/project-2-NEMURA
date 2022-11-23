@@ -6,12 +6,12 @@ import { Top50 } from "./pages/Top50";
 import { About } from "./pages/About";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
-import ResultsShow from "./pages/results/CastGrid";
+// import ResultsShow from "./pages/results/CastGrid";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CurrentPage from "./pages/CurrentPage";
 import Schedule from "./pages/Schedule";
 import PeoplePage from "./pages/PeoplePage";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { GlobalProvider } from "./Components/Context/GlobalState";
 // import Recomendedshows from "./Components/ratingSection/Recomended";
 
@@ -33,9 +33,6 @@ function App() {
           <Route path="/people/:name/:id" element={<PeoplePage />} />
           <Route path="/about" element={<About />} />
         </Routes>
-
-          {/* <Recomendedshows /> */}
-          {/* <ResultsShow/> */}
           <Footer />
         </div>
       </Router>

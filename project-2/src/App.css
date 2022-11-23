@@ -117,9 +117,9 @@ h2 {
   /* padding-left: 45%; */
   text-align: center;
 }
-.titles {
+/* .titles {
   padding-top: 100px;
-}
+} */
 /* #headlines {
   padding-top: 40px;
 } cunku sonuc olmadiginda alan bos kaliyor */
@@ -131,19 +131,56 @@ h2 {
 /* For Mobile Version: */
 @media all and (max-width: 768px) {
   .hero {
-    background-image: url("./assets/bg-hero.jpg");
-
+    /* background-image: url("./assets/bg-hero.jpg"); */
+    
     background-repeat: no-repeat;
+    object-fit: fill;
     background-position: center;
-    height: 700px;
-  }
-  .search-input {
-    width: 90%;
+    height: 500px;
+    }
+    .search-input {
+    width: 80%;
     height: 55px;
     font-size: 1.3rem;
-    margin-top: 200px;
+    /* margin-top: 200px; */
     opacity: 0.7;
-  }
+    }
+    .headlines {
+    margin: 0;
+    padding: 0;
+    }
+    .headingtext {
+    text-align: center;
+    /* padding-bottom: 50px; */
+    color: white;
+    font-weight: normal;
+    }
+    .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 420px;
+    flex-direction: column;
+    }
+    .search-form {
+    width: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* center-tex */
+    /* margin-top: 200px; */
+    }
+    .btn {
+    /* height: 55px; */
+    width: 150px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    background-color: rgb(58, 58, 72);
+    }
 }
 .alice-carousel__dots {
   display: none;

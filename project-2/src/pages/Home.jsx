@@ -6,9 +6,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-import ResultsCast from "./results/CastGrid";
+// import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
-import Quotes from "../Components/Quotes/Quotes";
+// import Quotes from "../Components/Quotes/Quotes";
 // import MyFavourites from "./MyFavourites.jsx";
 import {
   GlobalContext,
@@ -83,7 +83,7 @@ export const Home = () => {
 
         {searchInput!="" && <div id="section">
           <div className="page-body">
-            <CardGrid shows={shows} handleFavoriteClick={addToFavourits} />
+            <CardGrid shows={shows}  />
           </div>
         </div>}
         {/* <div id="section">
@@ -115,7 +115,7 @@ export const Home = () => {
         <PeopleGrid people={people} />
       </div> */}
       {/* <ResultsCast/> */}
-      {/* <SchedGrid /> */}
+      <SchedGrid />
     </GlobalProvider>
   );
 };

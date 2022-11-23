@@ -64,3 +64,22 @@ select {
 #h2 {
     margin: 0 0 1% 7%;
 }
+
+@media screen and (max-width: 1000px) {
+    .seasons-section {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .episode-row {
+    display: flex;
+    grid-template-rows: auto;
+    background-color: #cccc;
+    /* margin-top: 0.5rem; */
+    /* border-radius: 10px; */
+    color: #2C2B3C;
+    /* min-height: max-content; */
+    /* padding: 5px; */
+    object-position: center;
+    /* box-shadow: 5px 5px 15px 5px #1D1818; */
+    /* width: inherits; */
+    }
+    }
