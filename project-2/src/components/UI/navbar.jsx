@@ -69,8 +69,8 @@ export const Navbar = () => {
             <Link className="nav-item nav-link" to="/my-favourites">
               MY FAVOURITES <span className="sr-only">(current)</span>
             </Link>
-            <Link className="nav-item nav-link" to="/top-50-series">
-              TOP 50 SERIES
+            <Link className="nav-item nav-link" to="/top-50">
+              TOP 50
             </Link>
             <Link className="nav-item nav-link" to="/about">
               ABOUT

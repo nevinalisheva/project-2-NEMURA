@@ -15,6 +15,8 @@ import {
   GlobalProvider,
 } from "../Components/Context/GlobalState.jsx";
 import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export const Home = () => {
   const [people, setPeople] = useState([]);
