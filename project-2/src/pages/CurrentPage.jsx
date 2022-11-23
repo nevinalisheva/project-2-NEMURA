@@ -12,7 +12,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
 import { MyFavourites } from "./MyFavourites.jsx";
 import ScrollButton from "../Components/scrollButton";
-import { Hero, Wraper, Content, Container } from './CurrentStyles';
+// import { Hero, Wraper, Content, Container } from './CurrentStyles';
 
 const CurrentPage = () => {
   const params = useParams();
@@ -234,17 +234,17 @@ const CurrentPage = () => {
           
           <section className="splide" aria-label="Splide Basic HTML Example">
          
-              <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 1000, gap: '0.1rem',   type: 'loop', drag: 'free', snap: true, perPage: 4, breakpoints: { 1100: {perPage: 3, gap: '.1rem'}, 750: {perPage: 2, gap: '.1rem'}, 480: {perPage:1, gap: '.1rem'}}} }>
+              <Splide aria-label="My Favorite Images"  options={ {rewind: true,   width: 1000, gap: '0.1em',   type: 'loop', drag: 'free', snap: true, perPage: 4, breakpoints: { 1200: {perPage: 3, gap: '.7em'}, 900: {perPage: 2, gap: '.3em'}, 600: {perPage:1, gap: '.1em'},}} }>
+           
 
           {showImage.map((img, index) => {
             return (
-            <div key={index}>
-              <SplideSlide>
+              <SplideSlide key={index}>
                   <a href={img.resolutions?.original?.url}><img className= "images" src={img.resolutions?.original?.url}  alt="Image 1"/></a>
               </SplideSlide>
-              </div>
             )
           })}
+          
           
               </Splide>
           
@@ -253,8 +253,7 @@ const CurrentPage = () => {
         </>
       )}
 
-      {/* </div> */}
-      {/* <SelectSeasons seasons={seasons} id={params.id}/> */}
+      <SelectSeasons seasons={seasons} id={params.id}/>
       <ScrollButton />
     </div>
   );
@@ -267,3 +266,9 @@ const InfoWraper = {
   marginBottom: "5rem",
   display: "flex",
 };
+
+
+
+
+
+
