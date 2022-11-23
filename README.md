@@ -51,6 +51,14 @@ npm start
    * "styled-components": "^5.3.6",
    * "web-vitals": "^2.1.4"
   
+  
+### Features coming soon...
+* filter the search based on genre, year etc.
+* add trailers
+* a quiz 
+* display TV shows’ reviews
+* add newly released TV shows
+
 ## Contributing
 
 We are open to new ideas and we would appreciate any collaboration and help you might provide!
