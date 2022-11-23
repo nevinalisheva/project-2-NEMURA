@@ -2,6 +2,8 @@
 
 It's our second project at Wild Code School that we created in a month's time. We used all our knowledge of React, JavaScript, and CSS. It was possible to implement that with the API from www.tvmaze.com.
 
+Click [here](https://nemura.netlify.app/) to access our website!
+
 ## General info
 
 This website allows you to search for any TV show and get information about its actors/actresses, seasons/episodes as well as its description. The nicest thing is the rating, so it's easy to see if the exact TV show is worth watching. 
