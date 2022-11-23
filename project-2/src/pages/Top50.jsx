@@ -4,6 +4,7 @@ import Quotes from "../Components/Quotes/Quotes";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Top50.css";
+import ScrollButton from "../Components/scrollButton";
 
 export const Top50 = () => {
     const [top, setTop] = useState([]);
@@ -77,6 +78,7 @@ return (
 </tbody>
 </table>
 </div>
+<ScrollButton />
 </div>
 );
 };
