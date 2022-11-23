@@ -8,6 +8,7 @@ import axios from "axios";
 import "../App.css";
 import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
+import Quotes from "../Components/Quotes/Quotes";
 // import MyFavourites from "./MyFavourites.jsx";
 import {
   GlobalContext,
@@ -100,10 +101,11 @@ export const Home = () => {
       </div>
     
       <hr />
-      <div className="headlines" id="headlines">
+      {searchInput==="" && <div className="headlines" id="headlines">
         <h1 >Nemura's Top</h1>
         <TopPicks />
-      </div>
+      </div>}
+      
       {/* <div className="page-body">
         <CardGrid shows={shows} />
       </div>
