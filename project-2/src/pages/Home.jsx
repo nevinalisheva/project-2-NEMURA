@@ -9,13 +9,16 @@ import "../App.css";
 import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
 import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export const Home = () => {
   const [people, setPeople] = useState([]);
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchInput, setSearchInput] = useState("house");
+  const [searchInput, setSearchInput] = useState("");
   const [submitSearch, setSubmitSearch] = useState(false);
+  const onSubmit = () => setSubmitSearch(true)
   //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
   async function fetchAll() {
@@ -62,8 +65,11 @@ export const Home = () => {
       </div>
       <hr />
       <div>
-        <h2 className="headlines">NEMURA's TOP</h2>
-        <TopPicks />
+      {searchInput=== "" &&
+      <>
+      <h2 className="headlines">NEMURA's TOP</h2>
+        <TopPicks /> 
+        </>}
       </div>
       <div className="page-body">
         <CardGrid shows={shows} />

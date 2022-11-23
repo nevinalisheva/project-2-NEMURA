@@ -4,13 +4,10 @@ import React, { useState, useEffect, useNavigate } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import 'react-alice-carousel/lib/alice-carousel.css';
-// import Details from "../../pages/Details";
+import { Home } from "../../pages/Home"
+import "../../App.css"
 
-// Handle API fetching: change to custom hook!
-
-
-
-function TopPicks({ selectedMovie, setSelectedMovie }) {
+function TopPicks({ selectedMovie, setSelectedMovie, setSubmitSearch, submitSearch }) {
   const urls = ["https://api.tvmaze.com/shows/30", "https://api.tvmaze.com/shows/150", "https://api.tvmaze.com/shows/179", "https://api.tvmaze.com/shows/102", "https://api.tvmaze.com/shows/32", "https://api.tvmaze.com/shows/169", "https://api.tvmaze.com/shows/161", "https://api.tvmaze.com/shows/527", "https://api.tvmaze.com/shows/748", "https://api.tvmaze.com/shows/30770", "https://api.tvmaze.com/shows/49945", "https://api.tvmaze.com/shows/16149", "https://api.tvmaze.com/shows/29191", "https://api.tvmaze.com/shows/44778", "https://api.tvmaze.com/shows/305"];
   const [shows, setShows] = useState([]);
   const [loading, setLoading] = useState(true);
