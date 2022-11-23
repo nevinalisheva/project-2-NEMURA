@@ -52,7 +52,7 @@ npm start
    * "web-vitals": "^2.1.4"
   
   
-### Features coming soon...
+## Features coming soon...
 * filter the search based on genre, year etc.
 * add trailers
 * a quiz 
