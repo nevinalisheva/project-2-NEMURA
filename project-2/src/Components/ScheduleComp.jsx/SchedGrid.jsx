@@ -16,7 +16,7 @@ let currentDate = `${year}-${month}-${day}`;
 let countyId = ["DE", "US", "TR", "IL"];
 
 const SchedGrid = () => {
-const [loading, setLoading] = useState(true);
+// const [loading, setLoading] = useState(true);
 const [schedule, setSchedule] = useState([]);
 const [country, setCountry] = useState([]);
 const URL = `https://api.tvmaze.com/schedule/web?date=${currentDate}&country=${country}`;
@@ -33,6 +33,7 @@ setResp(data);
 useEffect(() => {
 getSchedule(URL, setSchedule);
 // setLoading(false);
+// eslint-disable-next-line
 }, [country]);
 console.log(schedule);
 const handleSelect = (e) => {
