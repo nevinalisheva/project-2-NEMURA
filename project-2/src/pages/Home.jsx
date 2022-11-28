@@ -6,26 +6,30 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-import ResultsCast from "./results/CastGrid";
+// import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
+// import Quotes from "../Components/Quotes/Quotes";
 // import MyFavourites from "./MyFavourites.jsx";
 import {
   GlobalContext,
   GlobalProvider,
 } from "../Components/Context/GlobalState.jsx";
+import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export const Home = () => {
   const [people, setPeople] = useState([]);
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchInput, setSearchInput] = useState("house");
+  const [searchInput, setSearchInput] = useState("");
   const [submitSearch, setSubmitSearch] = useState(false);
 
   const [favourites, setFavourites] = useState([]);
   const addToFavourits = (shows) => {
     const newFavoiriteList = [...favourites, shows];
     setFavourites(newFavoiriteList);
-    console.log(favourites, "favories array");
+    // console.log(favourites, "favories array");
   };
   //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
@@ -42,10 +46,11 @@ export const Home = () => {
       setShows(showsData);
       setPeople(peopleData);
       setIsLoading(false);
-      console.log({ showsData }, { peopleData });
+      // console.log({ showsData }, { peopleData });
     } catch (error) {
       console.log(error);
     }
+    // console.log(shows);
   }
 
   useEffect(() => {
@@ -63,7 +68,7 @@ export const Home = () => {
   //   console.log(submitSearch, "submitSearch");
   //   console.log(shows, "shows");
   let resultsLength = shows.length + people.length;
-  console.log(shows, "shows i chose");
+  // console.log(shows, "shows i chose");
   return (
     <GlobalProvider>
       <div>
@@ -76,11 +81,11 @@ export const Home = () => {
           />
         </div>
 
-        <div id="section">
+        {searchInput!="" && <div id="section">
           <div className="page-body">
-            <CardGrid shows={shows} handleFavoriteClick={addToFavourits} />
+            <CardGrid shows={shows}  />
           </div>
-        </div>
+        </div>}
         {/* <div id="section">
         <div className="page-body">
           <CardGrid shows={favourites} handleFavoriteClick={addToFavourits} />
@@ -91,11 +96,26 @@ export const Home = () => {
           ? null
           : !resultsLength && <h2 className="headlines">No results found</h2>}
         {/* for <strong>"{searchInput}"</strong> */}
-        <div className="page-body">
+        {searchInput!="" && <div className="page-body">
           <PeopleGrid people={people} />
-        </div>
-        <SchedGrid />
+        </div>}
+        {/* <SchedGrid /> */}
       </div>
+    
+      <hr />
+      {searchInput==="" && <div className="headlines" id="headlines">
+        <h1 >Nemura's Top</h1>
+        <TopPicks />
+      </div>}
+      
+      {/* <div className="page-body">
+        <CardGrid shows={shows} />
+      </div>
+      <div className="page-body">
+        <PeopleGrid people={people} />
+      </div> */}
+      {/* <ResultsCast/> */}
+      {searchInput==="" && <SchedGrid />}
     </GlobalProvider>
   );
 };

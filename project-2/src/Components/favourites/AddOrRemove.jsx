@@ -1,21 +1,20 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../Context/GlobalState";
 import "./favourites.css";
+// import { GlobalProvider } from "../Components/Context/GlobalState";
 
-function AddOrRemove({ show, type, avoidDuplicate }) {
-  const { removeTitleFromFavourits, addTitleToFavourits } =
-    useContext(GlobalContext);
+function AddOrRemove({ show }) {
+  const { removeTitleFromFavourits } = useContext(GlobalContext);
+  // console.log(removeTitleFromFavourits, "fromaddorremove");
+  //   console.log(show, "dsgxjkhfskdfd");
 
   return (
     <div>
-      <button onClick={removeTitleFromFavourits(show.id)}>Remove</button>
-
       <button
-        onClick={() => addTitleToFavourits(show)}
-        disabled={avoidDuplicate}
-        className="addbtn"
+        className="overlay"
+        onClick={() => removeTitleFromFavourits(show.show.id)}
       >
-        add
+        Remove
       </button>
     </div>
   );

@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 // import Modal from "./Modal";
-import "./cards.css";
+// import "../Components/cards/cards.css";
 import image from "../../assets/Image_not_available.png";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-
-import AddToFavourite from "../favourites/AddToFavourite";
+// import MyFavourites from "../../pages/MyFavourites";
+// import AddToFavourite from "../favourites/AddToFavourite";
 import AddOrRemove from "../favourites/AddOrRemove";
 
 // import CurrentPage from "../../pages/CurrentPage";
 // import { Link } from "react-router-dom";
 
-const Card = ({
+const FavouriteCard = ({
   type,
   show,
   addTitleToFavourits,
   favourites,
   removeTitleFromFavourits,
 }) => {
-  const addedShow = favourites.find((i) => i.show.id === show.show.id);
+  //   const addedShow = favourites.find((i) => i.show.id === show.show.id);
   // console.log(show.show.id, "added show");
-  // console.log(removeTitleFromFavourits, "addTitleToFavourits");
+  // console.log(removeTitleFromFavourits, "removeTitleFromFavourits show");
 
-  const avoidDuplicate = addedShow ? true : false;
+  //   const avoidDuplicate = addedShow ? true : false;
   // console.log(type);
 
   const ratingConditional = (rating) => {
@@ -55,7 +55,7 @@ const Card = ({
             onClick={() => {
               window.scroll(0, 0);
             }}
-            to={"/shows/"+ show.show.name + "/" + show.show.id}
+            to={"/shows/" + show.show.name + "/" + show.show.id}
           >
             <img
               className="card-img"
@@ -78,19 +78,19 @@ const Card = ({
             {ratingConditional(Math.round(show.show?.rating?.average))}
           </p>
         </div>
-
-        <div>
+        <AddOrRemove show={show} type={type} />
+        {/* <div>
           <button
             className="overlay"
-            disabled={avoidDuplicate}
-            onClick={() => addTitleToFavourits(show)}
+            // disabled={avoidDuplicate}
+            onClick={() => removeTitleFromFavourits(show)}
           >
-            add to fav
+            remove
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );
 };
 
-export default Card;
+export default FavouriteCard;

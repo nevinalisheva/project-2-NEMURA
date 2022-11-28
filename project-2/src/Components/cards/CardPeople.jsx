@@ -7,7 +7,7 @@ const CardPeople = ({ people }) => {
   return (
     
     <>
-      <div className="card">
+      <div className="card" >
         <div className="card-image">
             <img className="card-img" alt = "image"  src={people.person?.image ? people.person?.image?.medium : image}/>
         </div>

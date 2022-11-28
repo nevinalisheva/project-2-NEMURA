@@ -1,0 +1,111 @@
+body {
+    /* font-family: "Montserrat", sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #403F4C;
+    /* background: linear-gradient(#524c4c, #8E7C7C); */
+    }
+    table {
+    margin: auto;
+    /* min-width: 500px; */
+    max-width: 800px;
+    border-collapse: collapse;
+    width: 90%;
+    box-shadow: 5px 5px 15px 5px #1D1818;
+    }
+    
+    .titles {
+    background: #777 !important;
+    color: #FFF;
+    text-align: start;
+    }
+    
+    .table tr {
+    /* border-bottom: 1px solid #DDD; */
+    background-color: #F5F9FC;
+    }
+    
+    tbody tr:hover {
+    background-color: #CCC;
+    }
+    
+    .tab-genre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    display: block;
+    }
+    
+    .table tr:nth-child(odd) {
+    background-color: #EBF3F9;
+    }
+    
+    .table tr:nth-child(odd):hover {
+    background-color: #CCC;
+    }
+    
+    .table td,
+    .table th {
+    width: fit-content;
+    vertical-align: baseline;
+    border: none;
+    }
+    
+    * {
+    border: none;
+    box-sizing: border-box;
+    }
+    
+    .top50-heading {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 20px;
+    }
+    .table-img {
+    height: 100px;
+    }
+    .genre-th {
+    display: block;
+    }
+    @media all and (max-width: 508px) {
+    table {
+    /* margin: auto; */
+    /* min-width: 100px; */
+    /* max-width: 200px; */
+    border-collapse: collapse;
+    /* width: 70%; */
+    box-shadow: 5px 5px 15px 5px #1D1818;
+    /* margin: 20px 20px; */
+    /* margin: 20px; */
+    }
+    .top50-heading {
+    display: flex;
+    justify-content: center;
+    color: white;
+    /* margin: 20px; */
+    }
+    .table-img {
+    height: 100px;
+    }
+    .table td,
+    .table th {
+    /* width: fit-content; */
+    /* vertical-align: baseline; */
+    /* height: inherit; */
+    border: none;
+    }
+
+    .tab-genre {
+    display: none;
+    }
+    .genre-th {
+    display: none;
+    }
+   
+    th {
+    width: 100px;
+    }
+    }
