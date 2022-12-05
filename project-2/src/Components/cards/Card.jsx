@@ -44,9 +44,7 @@ const Card = ({
       return "---";
     }
   };
-  let name = "muly";
-  // console.log(, "currentPage");
-  // console.log(show.show, "check");
+
   return (
     <>
       <div className="card">
@@ -55,9 +53,10 @@ const Card = ({
             onClick={() => {
               window.scroll(0, 0);
             }}
-            to={"/shows/"+ show.show.name + "/" + show.show.id}
+            to={"/shows/" + show.show.name + "/" + show.show.id}
           >
             <img
+              alt="show-img"
               className="card-img"
               src={show.show?.image ? show.show?.image?.medium : image}
             />

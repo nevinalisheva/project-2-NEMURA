@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "../Components/Search.jsx";
-import CardGrid from "../Components/cards/CardGrid";
+import Ngrid from "../Components/cards/Ngrid";
 import PeopleGrid from "../Components/cards/PeopleGrid";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -81,11 +81,13 @@ export const Home = () => {
           />
         </div>
 
-        {searchInput!="" && <div id="section">
-          <div className="page-body">
-            <CardGrid shows={shows}  />
+        {searchInput !== "" && (
+          <div id="section">
+            <div className="page-body">
+              <Ngrid shows={shows} people={people} />
+            </div>
           </div>
-        </div>}
+        )}
         {/* <div id="section">
         <div className="page-body">
           <CardGrid shows={favourites} handleFavoriteClick={addToFavourits} />
@@ -96,18 +98,22 @@ export const Home = () => {
           ? null
           : !resultsLength && <h2 className="headlines">No results found</h2>}
         {/* for <strong>"{searchInput}"</strong> */}
-        {searchInput!="" && <div className="page-body">
-          <PeopleGrid people={people} />
-        </div>}
+        {searchInput !== "" && (
+          <div className="page-body">
+            <PeopleGrid people={people} />
+          </div>
+        )}
         {/* <SchedGrid /> */}
       </div>
-    
+
       <hr />
-      {searchInput==="" && <div className="headlines" id="headlines">
-        <h1 >Nemura's Top</h1>
-        <TopPicks />
-      </div>}
-      
+      {searchInput === "" && (
+        <div className="headlines" id="headlines">
+          <h1>Nemura's Top</h1>
+          <TopPicks />
+        </div>
+      )}
+
       {/* <div className="page-body">
         <CardGrid shows={shows} />
       </div>
@@ -115,7 +121,7 @@ export const Home = () => {
         <PeopleGrid people={people} />
       </div> */}
       {/* <ResultsCast/> */}
-      {searchInput==="" && <SchedGrid />}
+      {searchInput === "" && <SchedGrid />}
     </GlobalProvider>
   );
 };
