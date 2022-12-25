@@ -13,7 +13,11 @@ const Ngrid = ({ people, shows, isLoading }) => {
       <hr></hr>
       <div className="headlines" id="headlines">
         <h1>
-          <strong>{shows.length ? "Titles" : null}</strong>
+          {shows ? (
+            <strong>{shows.length ? "Titles" : null}</strong>
+          ) : (
+            <strong>{people.length ? "People" : null}</strong>
+          )}
         </h1>
       </div>
       <div className="mul">

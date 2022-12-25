@@ -14,9 +14,9 @@ const Card = ({
   addTitleToFavourits,
   favourites,
 }) => {
-  const addedShow = favourites.find((i) => i.show.id === show.show.id);
+  // const addedShow = favourites.find((i) => i.show.id === show.show.id);
 
-  const avoidDuplicate = addedShow ? true : false;
+  // const avoidDuplicate = addedShow ? true : false;
 
   const ratingConditional = (rating) => {
     if (rating <= 2) {
@@ -48,7 +48,11 @@ const Card = ({
           to={(show ? "/shows/" : "/people/") + title + "/" + id}
         >
           <div className="card-image">
-            <img className="card-img" src={image ? image.medium : noImage} />
+            <img
+              className="card-img"
+              alt="card-img"
+              src={image ? image.medium : noImage}
+            />
           </div>
 
           <div className="card-info">
@@ -85,7 +89,7 @@ const Card = ({
           <div>
             <button
               className="overlay"
-              disabled={avoidDuplicate}
+              // disabled={avoidDuplicate}
               onClick={() => addTitleToFavourits(show)}
             >
               add to fav

@@ -55,7 +55,6 @@ export const Home = () => {
 
   useEffect(() => {
     fetchAll();
-
     return () => {
       setSubmitSearch(false);
     };

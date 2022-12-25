@@ -2,6 +2,7 @@ import React from "react";
 import CardPeople from "./CardPeople";
 import "./cards.css";
 import { HashLink as Link } from "react-router-hash-link";
+import Cardn from "./Cardn";
 
 const PeopleGrid = ({ people, isLoading }) => {
   return isLoading ? (
@@ -15,17 +16,23 @@ const PeopleGrid = ({ people, isLoading }) => {
       </div>
       <div className="mul">
         <section className="cards-section">
-          {people.map((people) => {
+          {people.map((people, i) => {
             return (
-              <div key={people.person.id}>
-                <Link
+              <div key={i}>
+                {/* <Link
                   onClick={() => {
                     window.scroll(0, 0);
                   }}
                   to={"/people/" + people.person.name + "/" + people.person.id}
-                >
-                  <CardPeople people={people} />
-                </Link>
+                > */}
+                <Cardn
+                  image={people.person?.image}
+                  people={people.person}
+                  title={people.person.name}
+                  id={people.person.id}
+                  description={people.person.country?.name}
+                />
+                {/* </Link> */}
               </div>
             );
           })}

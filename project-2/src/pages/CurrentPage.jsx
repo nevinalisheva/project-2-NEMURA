@@ -5,8 +5,8 @@ import styled from "styled-components";
 import "./current.css";
 import Results from "./results/CastGrid.jsx";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
-import '@splidejs/splide/css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import "@splidejs/splide/css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
@@ -23,8 +23,6 @@ const CurrentPage = () => {
   const [loading, setLoading] = useState(true);
 
   // loading function
-
-  
 
   useEffect(() => {
     // setLoading(true);
@@ -46,7 +44,6 @@ const CurrentPage = () => {
 
     const ID = dataDetail.id;
     // console.log(ID, "ID");
-  
 
     const dataCast = await fetch(
       `https://api.tvmaze.com/shows/${ID}?embed=cast`
@@ -65,7 +62,6 @@ const CurrentPage = () => {
     // setLoading(false);
   };
 
-
   const fetchImages = async () => {
     const data = await fetch(
       `https://api.tvmaze.com/shows/${params.id}/images`
@@ -74,7 +70,6 @@ const CurrentPage = () => {
     setShowImage(dataDetail);
   };
   // console.log(details);
-
 
   useEffect(() => {
     fetchDetails();
@@ -96,78 +91,78 @@ const CurrentPage = () => {
   // console.log(background);
 
   const Hero = styled.div`
-  background-image: url(${poster[0]?.resolutions.original.url
-  ? poster[0]?.resolutions.original.url
-  : showImage[0]?.resolutions.original.url});
-  background-size: cover;
-  object-fit: cover;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 700px;
-  flex: 1;
-  // border: 2px solid yellow;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px 5px #1D1818;
-  min-width: 100%;
-  // overflow: hidden;
-  @media all and (max-width: 768px) {
-  height: 700px;
-  // width: 400px;
-  }
+    background-image: url(${poster[0]?.resolutions.original.url
+      ? poster[0]?.resolutions.original.url
+      : showImage[0]?.resolutions.original.url});
+    background-size: cover;
+    object-fit: cover;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 700px;
+    flex: 1;
+    // border: 2px solid yellow;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #1d1818;
+    min-width: 100%;
+    // overflow: hidden;
+    @media all and (max-width: 768px) {
+      height: 700px;
+      // width: 400px;
+    }
   `;
   const Wraper = styled.section`
-  display: grid;
-  // margin-top: 400px;
-  // background-color: green;
-  // width: 100vw;
-  padding: 20px;
-  margin-bottom: 50px;
-  justify-content: center;
-  grid-template-columns: 35% 50%;
-  gap: 2rem;
-  align-items: center;
-  // grid-area: photo;
-  @media all and (max-width: 768px) {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+    display: grid;
+    // margin-top: 400px;
+    // background-color: green;
+    // width: 100vw;
+    padding: 20px;
+    margin-bottom: 50px;
+    justify-content: center;
+    grid-template-columns: 35% 50%;
+    gap: 2rem;
+    align-items: center;
+    // grid-area: photo;
+    @media all and (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
   `;
-  
+
   const Content = styled.div`
-  flex: 2;
-  margin-left: 20px;
-  padding: 20px;
-  border: none;
-  background-color: #2C2B3C;
-  // width: 200px;
-  border-radius: 10px;
-  opacity: 0.8;
-  color: white;
-  box-shadow: 5px 5px 15px 5px #1D1818;
-  min-height: 700px;
-  // width: 300px !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    flex: 2;
+    margin-left: 20px;
+    padding: 20px;
+    border: none;
+    background-color: #2c2b3c;
+    // width: 200px;
+    border-radius: 10px;
+    opacity: 0.8;
+    color: white;
+    box-shadow: 5px 5px 15px 5px #1d1818;
+    min-height: 700px;
+    // width: 300px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `;
-  
+
   const Container = styled.section`
-  // background-color: #000;
-  // margin-top: 65px;
-  background-image: url(${background[0]?.resolutions.original.url
-  ? background[0]?.resolutions.original.url
-  : showImage[1]?.resolutions.original.url});
-  background-size: cover;
-  object-fit: fit;
-  height: 400px;
-  padding: 100px;
-  box-shadow: 5px 5px 15px 5px #1D1818;
-  display: block;
-  @media all and (max-width: 768px) {
-  display: none;
-  object-fit: contain;
-  // background-attachment: fixed;
-  background-position: center;
-  }
+    // background-color: #000;
+    // margin-top: 65px;
+    background-image: url(${background[0]?.resolutions.original.url
+      ? background[0]?.resolutions.original.url
+      : showImage[1]?.resolutions.original.url});
+    background-size: cover;
+    object-fit: fit;
+    height: 400px;
+    padding: 100px;
+    box-shadow: 5px 5px 15px 5px #1d1818;
+    display: block;
+    @media all and (max-width: 768px) {
+      display: none;
+      object-fit: contain;
+      // background-attachment: fixed;
+      background-position: center;
+    }
   `;
   const Summary = details.summary;
 
@@ -190,14 +185,22 @@ const CurrentPage = () => {
       ) : (
         <>
           <div className="hero2"></div>
-          <Container poster={poster} showImage={showImage} background={background}></Container>
+          <Container
+            poster={poster}
+            showImage={showImage}
+            background={background}
+          ></Container>
           {/* <div id="section1">Hi</div> */}
           <Wraper poster={poster} showImage={showImage} background={background}>
             <Hero poster={poster} showImage={showImage} background={background}>
               {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
             </Hero>
 
-            <Content poster={poster} showImage={showImage} background={background}>
+            <Content
+              poster={poster}
+              showImage={showImage}
+              background={background}
+            >
               <h1>{details.name}</h1>
               <p>
                 {details.premiered?.slice(0, 4)} - {details.ended?.slice(0, 4)}
@@ -236,35 +239,50 @@ const CurrentPage = () => {
               </div> */}
             </Content>
           </Wraper>
-          <Results cast={cast}/>
-          
+          <Results cast={cast} />
+
           <div className="headlines" id="headlines">
-          <h1>Photos</h1>
+            <h1>Photos</h1>
           </div>
           <div className="splideN">
-          
-          <section className="splide" aria-label="Splide Basic HTML Example">
-         
-              <Splide aria-label="My Favorite Images"  options={ {rewind: true,   width: 1000, gap: '0.1em',   type: 'loop', drag: 'free', snap: true, perPage: 4, breakpoints: { 1200: {perPage: 3, gap: '.7em'}, 900: {perPage: 2, gap: '.3em'}, 600: {perPage:1, gap: '.1em'},}} }>
-           
-
-          {showImage.map((img, index) => {
-            return (
-              <SplideSlide key={index}>
-                  <a href={img.resolutions?.original?.url}><img className= "images" src={img.resolutions?.original?.url}  alt="Image 1"/></a>
-              </SplideSlide>
-            )
-          })}
-          
-          
+            <section className="splide" aria-label="Splide Basic HTML Example">
+              <Splide
+                aria-label="My Favorite Images"
+                options={{
+                  rewind: true,
+                  width: 1000,
+                  gap: "0.1em",
+                  type: "loop",
+                  drag: "free",
+                  snap: true,
+                  perPage: 4,
+                  breakpoints: {
+                    1200: { perPage: 3, gap: ".7em" },
+                    900: { perPage: 2, gap: ".3em" },
+                    600: { perPage: 1, gap: ".1em" },
+                  },
+                }}
+              >
+                {showImage.map((img, index) => {
+                  return (
+                    <SplideSlide key={index}>
+                      <a href={img.resolutions?.original?.url}>
+                        <img
+                          className="images"
+                          src={img.resolutions?.original?.url}
+                          alt="Image 1"
+                        />
+                      </a>
+                    </SplideSlide>
+                  );
+                })}
               </Splide>
-          
             </section>
-            </div>
+          </div>
         </>
       )}
 
-      <SelectSeasons seasons={seasons} id={params.id}/>
+      <SelectSeasons seasons={seasons} id={params.id} />
       <ScrollButton />
     </div>
   );
@@ -277,9 +295,3 @@ const InfoWraper = {
   marginBottom: "5rem",
   display: "flex",
 };
-
-
-
-
-
-
