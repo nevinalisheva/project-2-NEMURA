@@ -46,7 +46,9 @@ const Card = ({
             window.scroll(0, 0);
           }}
           to={
-            (headline === "Titles" || "Known For" ? "/shows/" : "/people/") +
+            (headline === "Titles" || headline === "Known For"
+              ? "/shows/"
+              : "/people/") +
             title +
             "/" +
             id

@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "../Components/Search.jsx";
 import Ngrid from "../Components/cards/Ngrid";
-import PeopleGrid from "../Components/cards/PeopleGrid";
+// import PeopleGrid from "../Components/cards/PeopleGrid";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";

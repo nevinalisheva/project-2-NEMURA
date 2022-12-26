@@ -46,7 +46,7 @@ const CurrentPage = () => {
     // console.log(ID, "ID");
 
     const dataCast = await fetch(
-      `https://api.tvmaze.com/shows/${ID}?embed=cast`
+      `https://api.tvmaze.com/shows/${params.id}?embed=cast`
     );
     const castInfo = await dataCast.json();
     setCast(castInfo._embedded.cast);
@@ -270,7 +270,7 @@ const CurrentPage = () => {
                         <img
                           className="images"
                           src={img.resolutions?.original?.url}
-                          alt="Image 1"
+                          alt="show-pic"
                         />
                       </a>
                     </SplideSlide>
