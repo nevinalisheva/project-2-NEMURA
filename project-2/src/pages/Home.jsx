@@ -1,21 +1,15 @@
 import React from "react";
 import Search from "../Components/Search.jsx";
-import Ngrid from "../Components/cards/Ngrid";
-// import PeopleGrid from "../Components/cards/PeopleGrid";
+import CardGrid from "../Components/cards/CardGrid";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-// import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
 // import Quotes from "../Components/Quotes/Quotes";
 // import MyFavourites from "./MyFavourites.jsx";
-import {
-  GlobalContext,
-  GlobalProvider,
-} from "../Components/Context/GlobalState.jsx";
+import { GlobalProvider } from "../Components/Context/GlobalState.jsx";
 import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
-import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 export const Home = () => {
@@ -31,7 +25,6 @@ export const Home = () => {
     setFavourites(newFavoiriteList);
     // console.log(favourites, "favories array");
   };
-  //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
   async function fetchAll() {
     try {
@@ -83,26 +76,19 @@ export const Home = () => {
         {searchInput !== "" && (
           <div id="section">
             <div className="page-body">
-              <Ngrid data={shows} headline="Titles" />
+              <CardGrid data={shows} headline="Titles" />
             </div>
           </div>
         )}
-        {/* <div id="section">
-        <div className="page-body">
-          <CardGrid shows={favourites} handleFavoriteClick={addToFavourits} />
-        </div>
-      </div> */}
-        {/* {!resultsLength && <h2 className="headlines" >No results found</h2>} */}
+
         {searchInput === ""
           ? null
           : !resultsLength && <h2 className="headlines">No results found</h2>}
-        {/* for <strong>"{searchInput}"</strong> */}
         {searchInput !== "" && (
           <div className="page-body">
-            <Ngrid data={people} headline="People" />
+            <CardGrid data={people} headline="People" />
           </div>
         )}
-        {/* <SchedGrid /> */}
       </div>
 
       <hr />
@@ -112,14 +98,6 @@ export const Home = () => {
           <TopPicks />
         </div>
       )}
-
-      {/* <div className="page-body">
-        <CardGrid shows={shows} />
-      </div>
-      <div className="page-body">
-        <PeopleGrid people={people} />
-      </div> */}
-      {/* <ResultsCast/> */}
       {searchInput === "" && <SchedGrid />}
     </GlobalProvider>
   );

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../Context/GlobalState";
-import Cardn from "./Cardn";
+import Card from "./Card";
 import "./cards.css";
 
-const Ngrid = ({ data, headline, isLoading, dataCharacter }) => {
+const CardGrid = ({ data, headline, isLoading }) => {
   const { addTitleToFavourits, favourites } = useContext(GlobalContext);
   return isLoading ? (
     `loading...`
@@ -19,17 +19,18 @@ const Ngrid = ({ data, headline, isLoading, dataCharacter }) => {
         <div className="cards-section">
           {data.map((data, i) => {
             return (
-              <Cardn
+              <Card
                 addTitleToFavourits={addTitleToFavourits}
                 favourites={favourites}
                 key={i}
-                title={data.name}
-                id={data.id}
+                title={data.name || data.person.name}
+                id={data.id || data.person.id}
                 image={data.image}
                 description={data.network?.name || data.country?.name}
                 headline={headline}
                 data={data}
-                dataCharacter={dataCharacter}
+                imageCast={data.character?.image || data.person?.image}
+                titleCharacter={data.character?.name}
               />
             );
           })}
@@ -39,4 +40,4 @@ const Ngrid = ({ data, headline, isLoading, dataCharacter }) => {
   );
 };
 
-export default Ngrid;
+export default CardGrid;

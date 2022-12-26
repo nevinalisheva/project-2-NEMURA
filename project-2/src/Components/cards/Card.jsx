@@ -1,29 +1,23 @@
-import React, { useState } from "react";
-// import Modal from "./Modal";
+import React from "react";
 import "./cards.css";
-import image from "../../assets/Image_not_available.png";
-import { Navigate } from "react-router-dom";
+import noImage from "../../assets/Image_not_available.png";
 import { HashLink as Link } from "react-router-hash-link";
 
-import AddToFavourite from "../favourites/AddToFavourite";
-import AddOrRemove from "../favourites/AddOrRemove";
-
-// import CurrentPage from "../../pages/CurrentPage";
-// import { Link } from "react-router-dom";
-
 const Card = ({
-  type,
-  show,
+  headline,
+  data,
+  imageCast,
+  titleCharacter,
+  id,
+  title,
+  image,
+  description,
   addTitleToFavourits,
   favourites,
-  removeTitleFromFavourits,
 }) => {
-  const addedShow = favourites.find((i) => i.show.id === show.show.id);
-  // console.log(show.show.id, "added show");
-  // console.log(removeTitleFromFavourits, "addTitleToFavourits");
+  // const addedShow = favourites.find((i) => i.show.id === show.show.id);
 
-  const avoidDuplicate = addedShow ? true : false;
-  // console.log(type);
+  // const avoidDuplicate = addedShow ? true : false;
 
   const ratingConditional = (rating) => {
     if (rating <= 2) {
@@ -48,45 +42,77 @@ const Card = ({
   return (
     <>
       <div className="card">
-        <div className="card-image">
-          <Link
-            onClick={() => {
-              window.scroll(0, 0);
-            }}
-            to={"/shows/" + show.show.name + "/" + show.show.id}
-          >
-            <img
-              alt="show-img"
-              className="card-img"
-              src={show.show?.image ? show.show?.image?.medium : image}
-            />
-          </Link>
-        </div>
-        <div className="card-info">
-          <p className="result-name">
-            <strong>{show.show?.name}</strong>
-          </p>
-          <p>
-            Network:{" "}
-            {show.show.network && show.show?.network.name
-              ? show.show.network.name
-              : " Unknown"}
-          </p>
-          <p>
-            <strong> </strong>
-            {ratingConditional(Math.round(show.show?.rating?.average))}
-          </p>
-        </div>
+        <Link
+          onClick={() => {
+            window.scroll(0, 0);
+          }}
+          to={
+            (headline === "Titles" || headline === "Known For"
+              ? "/shows/"
+              : "/people/") +
+            title +
+            "/" +
+            id
+          }
+        >
+          <div className="card-image">
+            {titleCharacter ? (
+              <img
+                className="card-img"
+                alt="card-img"
+                src={imageCast ? imageCast.medium : noImage}
+              />
+            ) : (
+              <img
+                className="card-img"
+                alt="card-img"
+                src={image ? image.medium : noImage}
+              />
+            )}
+          </div>
 
-        <div>
-          <button
-            className="overlay"
-            disabled={avoidDuplicate}
-            onClick={() => addTitleToFavourits(show)}
-          >
-            add to fav
-          </button>
-        </div>
+          <div className="card-info">
+            <p className="result-name">
+              <strong>{title}</strong>
+            </p>
+
+            {headline === "People" && (
+              <p>
+                {data.gender
+                  ? data.gender === "Male"
+                    ? "Actor"
+                    : "Actress"
+                  : "Actor/Actress"}
+              </p>
+            )}
+
+            {titleCharacter ? (
+              <p>{titleCharacter}</p>
+            ) : (
+              <p>
+                {(headline === "Titles" || headline === "Known For"
+                  ? "Network: "
+                  : "Country: ") + (description ? description : "Unknown")}
+              </p>
+            )}
+
+            {(headline === "Titles" || headline === "Known For") && (
+              <p>{ratingConditional(Math.round(data.rating?.average))}</p>
+            )}
+          </div>
+        </Link>
+
+        {headline === "Titles" && (
+          <div>
+            <button
+              className="overlay"
+              // disabled={avoidDuplicate}
+              onClick={() => addTitleToFavourits(data)}
+            >
+              add to fav
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

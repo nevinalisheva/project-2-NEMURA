@@ -3,23 +3,20 @@ import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import "./current.css";
-// import Results from "./results/CastGrid.jsx";
-import Ngrid from "../Components/cards/Ngrid";
+import CardGrid from "../Components/cards/CardGrid";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "@splidejs/splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
-import { MyFavourites } from "./MyFavourites.jsx";
+// import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
+// import { MyFavourites } from "./MyFavourites.jsx";
 import ScrollButton from "../Components/scrollButton";
 // import { Hero, Wraper, Content, Container } from './CurrentStyles';
 
 const CurrentPage = () => {
   const params = useParams();
   const [details, setDetails] = useState({});
-  const [castPerson, setCastPerson] = useState([]);
-  const [castCharacter, setCastCharacter] = useState([]);
+  const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [seasons, setSeasons] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,11 +45,7 @@ const CurrentPage = () => {
       `https://api.tvmaze.com/shows/${params.id}?embed=cast`
     );
     const castInfo = await dataCast.json();
-    setCastPerson(castInfo._embedded.cast.map((cast) => cast.person));
-    setCastCharacter(castInfo._embedded.cast.map((cast) => cast.character));
-
-    // console.log(castPerson, "castPerson");
-    console.log(castCharacter, "castCharacter");
+    setCast(castInfo._embedded.cast);
 
     const dataSeasons = await fetch(
       `https://api.tvmaze.com/shows/${params.id}/seasons`
@@ -192,11 +185,12 @@ const CurrentPage = () => {
             showImage={showImage}
             background={background}
           ></Container>
-          {/* <div id="section1">Hi</div> */}
           <Wraper poster={poster} showImage={showImage} background={background}>
-            <Hero poster={poster} showImage={showImage} background={background}>
-              {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
-            </Hero>
+            <Hero
+              poster={poster}
+              showImage={showImage}
+              background={background}
+            ></Hero>
 
             <Content
               poster={poster}
@@ -227,7 +221,6 @@ const CurrentPage = () => {
                   {details.network?.name ? details.network.name : null}{" "}
                 </a>{" "}
                 , {details.network?.country?.code}
-                {/* {details.network?.officialSite} */}
               </p>
               <a href={details?.officialSite ? details?.officialSite : null}>
                 {details?.officialSite ? "Official site" : null}
@@ -241,13 +234,7 @@ const CurrentPage = () => {
               </div> */}
             </Content>
           </Wraper>
-          {/* <Results castPerson={castPerson} /> */}
-          <Ngrid
-            data={castPerson}
-            headline="Cast"
-            isLoading={isLoading}
-            dataCharacter={castCharacter}
-          />
+          <CardGrid data={cast} headline="Cast" isLoading={isLoading} />
 
           <div className="headlines" id="headlines">
             <h1>Photos</h1>
@@ -297,9 +284,3 @@ const CurrentPage = () => {
 };
 
 export default CurrentPage;
-
-const InfoWraper = {
-  marginTop: "10rem",
-  marginBottom: "5rem",
-  display: "flex",
-};
