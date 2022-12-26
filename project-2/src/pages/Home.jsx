@@ -1,21 +1,15 @@
 import React from "react";
 import Search from "../Components/Search.jsx";
 import CardGrid from "../Components/cards/CardGrid";
-import PeopleGrid from "../Components/cards/PeopleGrid";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-// import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
 // import Quotes from "../Components/Quotes/Quotes";
 // import MyFavourites from "./MyFavourites.jsx";
-import {
-  GlobalContext,
-  GlobalProvider,
-} from "../Components/Context/GlobalState.jsx";
+import { GlobalProvider } from "../Components/Context/GlobalState.jsx";
 import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
-import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 export const Home = () => {
@@ -31,22 +25,21 @@ export const Home = () => {
     setFavourites(newFavoiriteList);
     // console.log(favourites, "favories array");
   };
-  //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
   async function fetchAll() {
     try {
       const shows = await axios.get(
         `https://api.tvmaze.com/search/shows?q=${searchInput}`
       );
-      const showsData = shows.data;
+      const showsData = shows.data.map((show) => show.show);
       const people = await axios.get(
         `https://api.tvmaze.com/search/people?q=${searchInput}`
       );
-      const peopleData = people.data;
+      const peopleData = people.data.map((people) => people.person);
       setShows(showsData);
       setPeople(peopleData);
       setIsLoading(false);
-      // console.log({ showsData }, { peopleData });
+      console.log({ showsData }, { peopleData });
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +48,6 @@ export const Home = () => {
 
   useEffect(() => {
     fetchAll();
-
     return () => {
       setSubmitSearch(false);
     };
@@ -81,41 +73,32 @@ export const Home = () => {
           />
         </div>
 
-        {searchInput!="" && <div id="section">
-          <div className="page-body">
-            <CardGrid shows={shows}  />
+        {searchInput !== "" && (
+          <div id="section">
+            <div className="page-body">
+              <CardGrid data={shows} headline="Titles" />
+            </div>
           </div>
-        </div>}
-        {/* <div id="section">
-        <div className="page-body">
-          <CardGrid shows={favourites} handleFavoriteClick={addToFavourits} />
-        </div>
-      </div> */}
-        {/* {!resultsLength && <h2 className="headlines" >No results found</h2>} */}
+        )}
+
         {searchInput === ""
           ? null
           : !resultsLength && <h2 className="headlines">No results found</h2>}
-        {/* for <strong>"{searchInput}"</strong> */}
-        {searchInput!="" && <div className="page-body">
-          <PeopleGrid people={people} />
-        </div>}
-        {/* <SchedGrid /> */}
+        {searchInput !== "" && (
+          <div className="page-body">
+            <CardGrid data={people} headline="People" />
+          </div>
+        )}
       </div>
-    
+
       <hr />
-      {searchInput==="" && <div className="headlines" id="headlines">
-        <h1 >Nemura's Top</h1>
-        <TopPicks />
-      </div>}
-      
-      {/* <div className="page-body">
-        <CardGrid shows={shows} />
-      </div>
-      <div className="page-body">
-        <PeopleGrid people={people} />
-      </div> */}
-      {/* <ResultsCast/> */}
-      {searchInput==="" && <SchedGrid />}
+      {searchInput === "" && (
+        <div className="headlines" id="headlines">
+          <h1>Nemura's Top</h1>
+          <TopPicks />
+        </div>
+      )}
+      {searchInput === "" && <SchedGrid />}
     </GlobalProvider>
   );
 };

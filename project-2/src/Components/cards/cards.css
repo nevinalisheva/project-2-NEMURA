@@ -64,6 +64,7 @@
   text-align: center;
   padding: 20px 20px 0 20px;
   max-width: 250px;
+  color: whitesmoke;
 }
 
 .result-name {
@@ -103,12 +104,11 @@
   padding: 5px 5px 0 5px;
   object-position: center;
   box-shadow: 5px 5px 15px 5px #1d1818;  */
-  
 }
 .cardpeople-img {
   max-height: 400px;
   border-radius: 10px;
-    /* box-shadow: 5px 5px 15px 5px #1d1818; */
+  /* box-shadow: 5px 5px 15px 5px #1d1818; */
 }
 
 .content {
@@ -116,7 +116,7 @@
   max-height: 450px;
   border-radius: 10px;
   margin: 0 15px;
-  color: #CCCC;
+  color: #cccc;
   /* padding: 20px; */
   background-color: #2c2b3c;
   padding: 5px 5px 0 5px;
@@ -131,15 +131,15 @@
 
 .cards-info {
   display: grid;
-    padding: 20px;
-    max-width: 250px;
-    background-color: #403f4c;
-    height: 400px;
-    align-self: center;
-    text-align: left;
-    object-position: center;
-    border-radius: 10px;
-    color: whitesmoke;
+  padding: 20px;
+  max-width: 250px;
+  background-color: #403f4c;
+  height: 400px;
+  align-self: center;
+  text-align: left;
+  object-position: center;
+  border-radius: 10px;
+  color: whitesmoke;
 }
 
 .info {
