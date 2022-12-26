@@ -4,8 +4,8 @@ import noImage from "../../assets/Image_not_available.png";
 import { HashLink as Link } from "react-router-hash-link";
 
 const Card = ({
-  show,
-  people,
+  headline,
+  data,
   cast,
   id,
   title,
@@ -45,7 +45,12 @@ const Card = ({
           onClick={() => {
             window.scroll(0, 0);
           }}
-          to={(show ? "/shows/" : "/people/") + title + "/" + id}
+          to={
+            (headline === "Titles" || "Known For" ? "/shows/" : "/people/") +
+            title +
+            "/" +
+            id
+          }
         >
           <div className="card-image">
             <img
@@ -60,10 +65,10 @@ const Card = ({
               <strong>{title}</strong>
             </p>
 
-            {people && (
+            {headline === "People" && (
               <p>
-                {people.gender
-                  ? people.gender === "Male"
+                {data.gender
+                  ? data.gender === "Male"
                     ? "Actor"
                     : "Actress"
                   : "Actor/Actress"}
@@ -72,25 +77,25 @@ const Card = ({
 
             {!cast && (
               <p>
-                {(show ? "Network: " : "Country: ") +
+                {(headline === "Titles" ? "Network: " : "Country: ") +
                   (description ? description : "Unknown")}
               </p>
             )}
 
-            {show && (
-              <p>{ratingConditional(Math.round(show.rating?.average))}</p>
+            {headline === "Titles" && (
+              <p>{ratingConditional(Math.round(data.rating?.average))}</p>
             )}
 
             {cast && <p>{cast.character?.name}</p>}
           </div>
         </Link>
 
-        {show && (
+        {headline === "Titles" && (
           <div>
             <button
               className="overlay"
               // disabled={avoidDuplicate}
-              onClick={() => addTitleToFavourits(show)}
+              onClick={() => addTitleToFavourits(data)}
             >
               add to fav
             </button>

@@ -38,15 +38,15 @@ export const Home = () => {
       const shows = await axios.get(
         `https://api.tvmaze.com/search/shows?q=${searchInput}`
       );
-      const showsData = shows.data;
+      const showsData = shows.data.map((show) => show.show);
       const people = await axios.get(
         `https://api.tvmaze.com/search/people?q=${searchInput}`
       );
-      const peopleData = people.data;
+      const peopleData = people.data.map((people) => people.person);
       setShows(showsData);
       setPeople(peopleData);
       setIsLoading(false);
-      // console.log({ showsData }, { peopleData });
+      console.log({ showsData }, { peopleData });
     } catch (error) {
       console.log(error);
     }
@@ -83,7 +83,7 @@ export const Home = () => {
         {searchInput !== "" && (
           <div id="section">
             <div className="page-body">
-              <Ngrid shows={shows} people={people} />
+              <Ngrid data={shows} headline="Titles" />
             </div>
           </div>
         )}
@@ -99,7 +99,7 @@ export const Home = () => {
         {/* for <strong>"{searchInput}"</strong> */}
         {searchInput !== "" && (
           <div className="page-body">
-            <PeopleGrid people={people} />
+            <Ngrid data={people} headline="People" />
           </div>
         )}
         {/* <SchedGrid /> */}

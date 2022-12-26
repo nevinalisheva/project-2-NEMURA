@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import image from "../assets/Image_not_available.png";
 import axios from "axios";
-import CardGrid from "../Components/cards/CardGrid";
+import Ngrid from "../Components/cards/Ngrid";
 import { HashLink as Link } from "react-router-hash-link";
-import Card from "../Components/cards/Card";
+// import Card from "../Components/cards/Card";
 const PeoplePage = () => {
   const params = useParams();
   const [people, setPeople] = useState({});
@@ -167,6 +167,7 @@ const PeoplePage = () => {
           </div>
 
           <div>
+            {/* <Ngrid data={shows} headline="Known For" isLoading={isLoading} /> */}
             <div className="headlines" id="headlines">
               {shows !== [] && (
                 <h1>

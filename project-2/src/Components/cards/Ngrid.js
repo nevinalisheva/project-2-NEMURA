@@ -3,9 +3,8 @@ import { GlobalContext } from "../Context/GlobalState";
 import Cardn from "./Cardn";
 import "./cards.css";
 
-const Ngrid = ({ people, shows, isLoading }) => {
+const Ngrid = ({ data, headline, isLoading }) => {
   const { addTitleToFavourits, favourites } = useContext(GlobalContext);
-  console.log(shows);
   return isLoading ? (
     `loading...`
   ) : (
@@ -13,26 +12,23 @@ const Ngrid = ({ people, shows, isLoading }) => {
       <hr></hr>
       <div className="headlines" id="headlines">
         <h1>
-          {shows ? (
-            <strong>{shows.length ? "Titles" : null}</strong>
-          ) : (
-            <strong>{people.length ? "People" : null}</strong>
-          )}
+          <strong>{data.length ? headline : null}</strong>
         </h1>
       </div>
       <div className="mul">
         <div className="cards-section">
-          {shows.map((show, i) => {
+          {data.map((data, i) => {
             return (
               <Cardn
                 addTitleToFavourits={addTitleToFavourits}
                 favourites={favourites}
                 key={i}
-                title={show.show.name}
-                id={show.show.id}
-                image={show.show?.image}
-                description={show.show?.network?.name}
-                show={show.show}
+                title={data.name}
+                id={data.id}
+                image={data.image}
+                description={data.network?.name || data.country?.name}
+                headline={headline}
+                data={data}
               />
             );
           })}
