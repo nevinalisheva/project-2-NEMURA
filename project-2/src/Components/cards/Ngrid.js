@@ -3,7 +3,7 @@ import { GlobalContext } from "../Context/GlobalState";
 import Cardn from "./Cardn";
 import "./cards.css";
 
-const Ngrid = ({ data, headline, isLoading }) => {
+const Ngrid = ({ data, headline, isLoading, dataCharacter }) => {
   const { addTitleToFavourits, favourites } = useContext(GlobalContext);
   return isLoading ? (
     `loading...`
@@ -29,6 +29,7 @@ const Ngrid = ({ data, headline, isLoading }) => {
                 description={data.network?.name || data.country?.name}
                 headline={headline}
                 data={data}
+                dataCharacter={dataCharacter}
               />
             );
           })}

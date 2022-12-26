@@ -6,6 +6,7 @@ import { HashLink as Link } from "react-router-hash-link";
 const Card = ({
   headline,
   data,
+  dataCharacter,
   cast,
   id,
   title,
@@ -17,6 +18,7 @@ const Card = ({
   // const addedShow = favourites.find((i) => i.show.id === show.show.id);
 
   // const avoidDuplicate = addedShow ? true : false;
+  console.log(dataCharacter, "dataCharacter");
 
   const ratingConditional = (rating) => {
     if (rating <= 2) {
@@ -77,18 +79,17 @@ const Card = ({
               </p>
             )}
 
-            {!cast && (
-              <p>
-                {(headline === "Titles" ? "Network: " : "Country: ") +
-                  (description ? description : "Unknown")}
-              </p>
-            )}
+            {headline === "Cast" && <p>{dataCharacter.name}</p>}
+
+            <p>
+              {(headline === "Titles" || headline === "Known For"
+                ? "Network: "
+                : "Country: ") + (description ? description : "Unknown")}
+            </p>
 
             {headline === "Titles" && (
               <p>{ratingConditional(Math.round(data.rating?.average))}</p>
             )}
-
-            {cast && <p>{cast.character?.name}</p>}
           </div>
         </Link>
 

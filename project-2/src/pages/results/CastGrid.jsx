@@ -32,11 +32,11 @@ const Results = ({ cast, isloading }) => {
                   to={"/people/" + cast.person.name + "/" + cast.person.id}
                 > */}
                 <Cardn
-                  key={cast.person.id}
-                  cast={cast}
-                  image={cast.character.image || cast.person.image}
-                  title={cast.person.name}
-                  id={cast.person.id}
+                  // key={cast.person.id}
+                  // cast={cast}
+                  // image={cast.character.image || cast.person.image}
+                  title={cast.name}
+                  // id={cast.person.id}
                 />
                 {/* </Link> */}
               </div>

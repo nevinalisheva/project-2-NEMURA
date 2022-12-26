@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import "./current.css";
-import Results from "./results/CastGrid.jsx";
+// import Results from "./results/CastGrid.jsx";
+import Ngrid from "../Components/cards/Ngrid";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "@splidejs/splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -17,8 +18,9 @@ import ScrollButton from "../Components/scrollButton";
 const CurrentPage = () => {
   const params = useParams();
   const [details, setDetails] = useState({});
-  const [cast, setCast] = useState([]);
-  const [isloading, setIsloading] = useState(true);
+  const [castPerson, setCastPerson] = useState([]);
+  const [castCharacter, setCastCharacter] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [seasons, setSeasons] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,15 +44,15 @@ const CurrentPage = () => {
     setDetails(dataDetail);
     // console.log(dataDetail, 'datadetail');
 
-    const ID = dataDetail.id;
-    // console.log(ID, "ID");
-
     const dataCast = await fetch(
       `https://api.tvmaze.com/shows/${params.id}?embed=cast`
     );
     const castInfo = await dataCast.json();
-    setCast(castInfo._embedded.cast);
-    // console.log(castInfo)
+    setCastPerson(castInfo._embedded.cast.map((cast) => cast.person));
+    setCastCharacter(castInfo._embedded.cast.map((cast) => cast.character));
+
+    // console.log(castPerson, "castPerson");
+    console.log(castCharacter, "castCharacter");
 
     const dataSeasons = await fetch(
       `https://api.tvmaze.com/shows/${params.id}/seasons`
@@ -58,7 +60,7 @@ const CurrentPage = () => {
     const seasonDetail = await dataSeasons.json();
     setSeasons(seasonDetail);
 
-    setIsloading(false);
+    setIsLoading(false);
     // setLoading(false);
   };
 
@@ -239,7 +241,13 @@ const CurrentPage = () => {
               </div> */}
             </Content>
           </Wraper>
-          <Results cast={cast} />
+          {/* <Results castPerson={castPerson} /> */}
+          <Ngrid
+            data={castPerson}
+            headline="Cast"
+            isLoading={isLoading}
+            dataCharacter={castCharacter}
+          />
 
           <div className="headlines" id="headlines">
             <h1>Photos</h1>
