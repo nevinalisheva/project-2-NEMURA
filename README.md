@@ -6,7 +6,7 @@ Click [here](https://nemura.netlify.app/) to access our website!
 
 ## General info
 
-This website allows you to search for any TV show and get information about its actors/actresses, seasons/episodes as well as its description. The nicest thing is the rating, so it's easy to see if the exact TV show is worth watching. 
+NEMURA is a web application that allows you to search for any TV show and get detailed information about its actors, seasons, episodes, and overall rating. Whether you are looking for your next binge-worthy series or simply want to know more about your favorite shows, NEMURA makes it easy to find what you are looking for. The app is fast, responsive and user-friendly.
 
 ## Features
 
